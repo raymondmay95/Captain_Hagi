@@ -1,2 +1,2 @@
-# Captain_Hagi
-Hawai'i surf forecast
+# Captain Hagi
+> Hawai'i surf forecast
