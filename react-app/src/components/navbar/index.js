@@ -4,11 +4,9 @@ import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import * as classes from "./navbar.module.css";
 
-const NavBar = ({ setAuthenticated }) => {
-  const sessionUser = useSelector((state) => state.session.user);
+const NavBar = ({ setAuthenticated, authenticated }) => {
   let sessionLinks;
-
-  if (sessionUser && !sessionUser.errors) {
+  if (!authenticated) {
     sessionLinks = (
       <>
         <nav className={classes.Main_NavBar}>
