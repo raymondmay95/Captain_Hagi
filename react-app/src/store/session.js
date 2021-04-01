@@ -9,6 +9,7 @@ const setUser = (user) => ({
 
 const removeUser = () => ({
   type: REMOVE_USER,
+  payload: { user: null },
 });
 
 //thunks
@@ -81,7 +82,7 @@ export default function sessionReducer(state = initialState, action) {
     case SET_USER:
       return { ...state, user: action.payload };
     case REMOVE_USER:
-      return { user: null };
+      return { ...state, user: null };
     default:
       return state;
   }

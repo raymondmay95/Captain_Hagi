@@ -4,7 +4,7 @@ const getFetch = async (url) => {
     const data = await response.json();
     return data;
   } else {
-    console.log("react-app/src/services/getFetch.js");
+    console.log("error @ react-app/src/services/getFetch.js");
     return response.status;
   }
 };

@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import NavBar from "./components/NavBar";
-import Home from "./components/Home";
+import NavBar from "./components/navbar";
+import Home from "./components/home";
 import User from "./components/User";
 import UsersList from "./components/UsersList";
 
@@ -28,11 +28,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar setAuthenticated={setAuthenticated} />
+      <NavBar
+        setAuthenticated={setAuthenticated}
+        authenticated={authenticated}
+      />
+      {!authenticated ? <h1>Time to Log in</h1> : null}
       <Switch>
-        <Route path="/" exact={true}>
-          <Home />
-        </Route>
         <Route path="/login" exact={true}>
           <LoginForm
             authenticated={authenticated}
@@ -61,6 +62,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
           <h1>Let's Surf</h1>
+          <Home />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
