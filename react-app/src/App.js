@@ -19,7 +19,11 @@ function App() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(restoreSession()).then(() => setLoaded(true));
+    async function setUp() {
+      await dispatch(restoreSession());
+      setLoaded(true);
+    }
+    setUp();
   }, [dispatch]);
 
   if (!loaded) {
