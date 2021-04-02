@@ -6,20 +6,10 @@
   </head>
   <body>
     <div id="root"></div>
-    <h1>my map</h1>
-    <div id="map"></div>
-    <script>
-      function initMap() {
-        let options = {
-          zoom: 8,
-          center: {lat:45.169931 , lng:-90.21659 },
-        };
-        let map = new google.maps.Map(
-          document.getElementById("map"),
-          options
-        );
-      }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd3sS9jkQiCcJWX84NBsoMYxanj4NyiLQ&callback=initMap"></script>
+    <script
+    async
+    defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd3sS9jkQiCcJWX84NBsoMYxanj4NyiLQ&callback=initMap"
+    ></script>
   </body>
 </html>

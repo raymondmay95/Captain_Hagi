@@ -15,11 +15,13 @@ if (process.env.NODE_ENV !== "production") {
   window.coords = coords;
 }
 
-const Root = () => (
-  <Provider store={store} session={session} coords={coords}>
-    <App />
-  </Provider>
-);
+const Root = () => {
+  return (
+    <Provider store={store} session={session} coords={coords}>
+      <App />
+    </Provider>
+  );
+};
 ReactDOM.render(
   <React.StrictMode>
     <Root />
