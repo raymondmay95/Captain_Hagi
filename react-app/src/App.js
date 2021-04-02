@@ -10,6 +10,7 @@ import UsersList from "./components/UsersList";
 
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
+import UploadPicture from "./components/aws_photo";
 
 import { restoreSession } from "./store/session";
 import { setCOORDSThunk } from "./store/coords";
@@ -97,6 +98,7 @@ function App() {
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
           <h1>Let's Surf</h1>
           <Home />
+          <UploadPicture />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

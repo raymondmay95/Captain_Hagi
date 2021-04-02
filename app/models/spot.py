@@ -15,7 +15,7 @@ class Spot(db.Model):
   name = db.Column(db.String(255), nullable = False, unique = True)
   image = db.Column(db.String(255))
   description = db.Column(db.Text(), nullable = False)
-  updated_at = db.Column(db.DateTime(), nullable=False)
+  updated_at = db.Column(db.DateTime(), nullable=False) #get to this later
   aws = db.relationship("MyAWS", back_populates="spot")
   user = db.relationship(
     "User",
