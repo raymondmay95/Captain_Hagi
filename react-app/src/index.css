@@ -1,1 +1,5 @@
 /* TODO Add site wide styles */
+#map {
+   height: 15vmax;
+   width: 97vmax;
+}
