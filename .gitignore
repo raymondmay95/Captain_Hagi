@@ -5,3 +5,4 @@ __pycache__/
 .DS_Store
 *package-lock.json*
 *Pipfile.lock*
+*.csv
