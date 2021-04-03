@@ -15,7 +15,7 @@ class Spot(db.Model):
   name = db.Column(db.String(255), nullable = False, unique = True)
   image = db.Column(db.String(255))
   description = db.Column(db.Text(), nullable = False)
-  updated_at = db.Column(db.DateTime(), nullable=False) #get to this later
+  updated_at = db.Column(db.DateTime(), nullable=False)
   aws = db.relationship("MyAWS", back_populates="spot")
   user = db.relationship(
     "User",
@@ -44,7 +44,7 @@ class Spot(db.Model):
   def to_dict(self):
     return {
       "id": self.id,
-      "location": {"long":self.long,"lat":self.lat},
+      "location": {"long":str(self.long),"lat":str(self.lat)},
       "name": self.name,
       "description": self.description,
       "updatedAt": self.updated_at

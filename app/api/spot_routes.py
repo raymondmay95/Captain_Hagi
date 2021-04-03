@@ -7,12 +7,20 @@ spot_routes = Blueprint('spots', __name__)
 @spot_routes.route('/')
 def spots():
     allspots = Spot.query.all()
-    for spot in allspots:
-        print(spot)
-    return {"spots":allspots} #! error is here
+        # allSpots[spot] = spot
+    #! error is here
+    allSpots = []
+    i = int(len(allspots)-1)
+    while i > 0:
+        i = i - 1
+        allSpots.append(allspots[i])
+        print(allSpots)
+
+    return jsonify({"Spots":[spot.to_dict() for spot in allSpots]})
 
 
 @spot_routes.route('/<int:id>')
 def spot(id):
     location = Spot.query.get(id)
-    return jsonify({location.to_dict()})
+    data=location.to_dict()
+    return data
