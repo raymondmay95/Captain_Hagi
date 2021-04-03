@@ -1,4 +1,4 @@
-from app.models import db, Spot
+from app.models import db, Spot, User
 from datetime import datetime
 
 # Adds a demo user, you can add other users here if you want
@@ -6,6 +6,7 @@ from datetime import datetime
 
 def seed_spots():
    now = datetime.now()
+   guy= [User.query.get(2)]
    Ala_Moana_Oahu_Coords={
       "lat":21.281884672165216,
       "long":-157.84628167580007
@@ -70,22 +71,22 @@ def seed_spots():
       "lat":22.20372577238072,
       "long":-159.50283944597362
    }
-   Ala_Moana_Oahu = Spot(long=Ala_Moana_Oahu_Coords['long'],lat=Ala_Moana_Oahu_Coords['lat'],name="Kaiser Bowls/Ala Moana Bowls",description=f"Oahu South Shore @ {Ala_Moana_Oahu_Coords['lat']},{Ala_Moana_Oahu_Coords['long']}", updated_at=now)
-   Banzai_Pipe_Line_Oahu = Spot(long=Banzai_Pipe_Line_Oahu_Coords['long'],lat=Banzai_Pipe_Line_Oahu_Coords['lat'],name="Banzai Pipe Line/Ehukai Beach Park",description=f"Oahu South Shore @ {Banzai_Pipe_Line_Oahu_Coords['lat']},{Banzai_Pipe_Line_Oahu_Coords['long']}", updated_at=now)
-   Makapuu_Oahu = Spot(long=Makapuu_Oahu_Coords['long'],lat=Makapuu_Oahu_Coords['lat'],name="Makapuu Beach",description=f"Oahu east Shore @ {Makapuu_Oahu_Coords['lat']},{Makapuu_Oahu_Coords['long']}", updated_at=now)
-   Sandys_Oahu = Spot(long=Sandys_Oahu_Coords['long'],lat=Sandys_Oahu_Coords['lat'],name="Sandys Beach",description=f"Oahu South Shore @ {Sandys_Oahu_Coords['lat']},{Sandys_Oahu_Coords['long']}", updated_at=now)
-   Waimea_Bay_Oahu = Spot(long=Waimea_Bay_Oahu_Coords['long'],lat=Waimea_Bay_Oahu_Coords['lat'],name="Waimea Bay/North Shore Indicator",description=f"Oahu North Shore @ {Waimea_Bay_Oahu_Coords['lat']},{Waimea_Bay_Oahu_Coords['long']}", updated_at=now)
-   Makaha_Oahu = Spot(long=Makaha_Oahu_Coords['long'],lat=Makaha_Oahu_Coords['lat'],name="Makaha Beach Park",description=f"Oahu South Shore @ {Makaha_Oahu_Coords['lat']},{Makaha_Oahu_Coords['long']}", updated_at=now)
-   Lahaina_Harbor_Maui = Spot(long=Lahaina_Harbor_Maui_Coords['long'],lat=Lahaina_Harbor_Maui_Coords['lat'],name="Lahaina Harbor/Lahaina Breakwall",description=f"Maui South Shore @ {Lahaina_Harbor_Maui_Coords['lat']},{Lahaina_Harbor_Maui_Coords['long']}", updated_at=now)
-   Honolua_Bay_Maui = Spot(long=Honolua_Bay_Maui_Coords['long'],lat=Honolua_Bay_Maui_Coords['lat'],name="Honolua Bay Maui",description=f"Maui Nort-West Shore @ {Honolua_Bay_Maui_Coords['lat']},{Honolua_Bay_Maui_Coords['long']}", updated_at=now)
-   Hookipa_Beach_Park_Maui = Spot(long=Hookipa_Beach_Park_Maui_Coords['long'],lat=Hookipa_Beach_Park_Maui_Coords['lat'],name="Ho'okipa Beach Park",description=f"Maui North Shore @ {Hookipa_Beach_Park_Maui_Coords['lat']},{Hookipa_Beach_Park_Maui_Coords['long']}", updated_at=now)
-   Oluwalu_Maui = Spot(long=Oluwalu_Maui_Coords['long'],lat=Oluwalu_Maui_Coords['lat'],name="Oluwalu/Kihei/Lahaina",description=f"Maui South Shore @ {Oluwalu_Maui_Coords['lat']},{Oluwalu_Maui_Coords['long']}", updated_at=now)
-   Windmills_Maui = Spot(long=Windmills_Maui_Coords['long'],lat=Windmills_Maui_Coords['lat'],name="Windmills",description=f"Maui North Shore @ {Windmills_Maui_Coords['lat']},{Windmills_Maui_Coords['long']}", updated_at=now)
-   Hana_Maui = Spot(long=Hana_Maui_Coords['long'],lat=Hana_Maui_Coords['lat'],name="Hana Maui Region",description=f"Maui East Shore @ {Hana_Maui_Coords['lat']},{Hana_Maui_Coords['long']}", updated_at=now)
-   Waiehu_Maui = Spot(long=Waiehu_Maui_Coords['long'],lat=Waiehu_Maui_Coords['lat'],name="Sandpiles/Churches/River Mouth/Big Lefts/Big Rights",description=f"Maui North Shore @ {Waiehu_Maui_Coords['lat']},{Waiehu_Maui_Coords['long']}", updated_at=now)
-   Banyons_Big_Island = Spot(long=Banyons_Big_Island_Coords['long'],lat=Banyons_Big_Island_Coords['lat'],name="Banyons Beach",description=f"Big Island South Shore @ {Banyons_Big_Island_Coords['lat']},{Banyons_Big_Island_Coords['long']}", updated_at=now)
-   Hapuna_Beach_Big_Island = Spot(long=Hapuna_Beach_Big_Island_Coords['long'],lat=Hapuna_Beach_Big_Island_Coords['lat'],name="Hapuna Beach",description=f"Big Island North Shore @ {Hapuna_Beach_Big_Island_Coords['lat']},{Hapuna_Beach_Big_Island_Coords['long']}", updated_at=now)
-   Hanalei_Bay_Kauai = Spot(long=Hanalei_Bay_Kauai_Coords['long'],lat=Hanalei_Bay_Kauai_Coords['lat'],name="Hanalei Bay/Pinetrees",description=f"Kauai North Shore @ {Hanalei_Bay_Kauai_Coords['lat']},{Hanalei_Bay_Kauai_Coords['long']}", updated_at=now)
+   Ala_Moana_Oahu = Spot(long=Ala_Moana_Oahu_Coords['long'],lat=Ala_Moana_Oahu_Coords['lat'],name="Kaiser Bowls/Ala Moana Bowls",description=f"Oahu South Shore @ {Ala_Moana_Oahu_Coords['lat']},{Ala_Moana_Oahu_Coords['long']}", updated_at=now, user=guy)
+   Banzai_Pipe_Line_Oahu = Spot(long=Banzai_Pipe_Line_Oahu_Coords['long'],lat=Banzai_Pipe_Line_Oahu_Coords['lat'],name="Banzai Pipe Line/Ehukai Beach Park",description=f"Oahu South Shore @ {Banzai_Pipe_Line_Oahu_Coords['lat']},{Banzai_Pipe_Line_Oahu_Coords['long']}", updated_at=now, user=guy)
+   Makapuu_Oahu = Spot(long=Makapuu_Oahu_Coords['long'],lat=Makapuu_Oahu_Coords['lat'],name="Makapuu Beach",description=f"Oahu east Shore @ {Makapuu_Oahu_Coords['lat']},{Makapuu_Oahu_Coords['long']}", updated_at=now, user=guy)
+   Sandys_Oahu = Spot(long=Sandys_Oahu_Coords['long'],lat=Sandys_Oahu_Coords['lat'],name="Sandys Beach",description=f"Oahu South Shore @ {Sandys_Oahu_Coords['lat']},{Sandys_Oahu_Coords['long']}", updated_at=now, user=guy)
+   Waimea_Bay_Oahu = Spot(long=Waimea_Bay_Oahu_Coords['long'],lat=Waimea_Bay_Oahu_Coords['lat'],name="Waimea Bay/North Shore Indicator",description=f"Oahu North Shore @ {Waimea_Bay_Oahu_Coords['lat']},{Waimea_Bay_Oahu_Coords['long']}", updated_at=now, user=guy)
+   Makaha_Oahu = Spot(long=Makaha_Oahu_Coords['long'],lat=Makaha_Oahu_Coords['lat'],name="Makaha Beach Park",description=f"Oahu South Shore @ {Makaha_Oahu_Coords['lat']},{Makaha_Oahu_Coords['long']}", updated_at=now, user=guy)
+   Lahaina_Harbor_Maui = Spot(long=Lahaina_Harbor_Maui_Coords['long'],lat=Lahaina_Harbor_Maui_Coords['lat'],name="Lahaina Harbor/Lahaina Breakwall",description=f"Maui South Shore @ {Lahaina_Harbor_Maui_Coords['lat']},{Lahaina_Harbor_Maui_Coords['long']}", updated_at=now, user=guy)
+   Honolua_Bay_Maui = Spot(long=Honolua_Bay_Maui_Coords['long'],lat=Honolua_Bay_Maui_Coords['lat'],name="Honolua Bay Maui",description=f"Maui Nort-West Shore @ {Honolua_Bay_Maui_Coords['lat']},{Honolua_Bay_Maui_Coords['long']}", updated_at=now, user=guy)
+   Hookipa_Beach_Park_Maui = Spot(long=Hookipa_Beach_Park_Maui_Coords['long'],lat=Hookipa_Beach_Park_Maui_Coords['lat'],name="Ho'okipa Beach Park",description=f"Maui North Shore @ {Hookipa_Beach_Park_Maui_Coords['lat']},{Hookipa_Beach_Park_Maui_Coords['long']}", updated_at=now, user=guy)
+   Oluwalu_Maui = Spot(long=Oluwalu_Maui_Coords['long'],lat=Oluwalu_Maui_Coords['lat'],name="Oluwalu/Kihei/Lahaina",description=f"Maui South Shore @ {Oluwalu_Maui_Coords['lat']},{Oluwalu_Maui_Coords['long']}", updated_at=now, user=guy)
+   Windmills_Maui = Spot(long=Windmills_Maui_Coords['long'],lat=Windmills_Maui_Coords['lat'],name="Windmills",description=f"Maui North Shore @ {Windmills_Maui_Coords['lat']},{Windmills_Maui_Coords['long']}", updated_at=now, user=guy)
+   Hana_Maui = Spot(long=Hana_Maui_Coords['long'],lat=Hana_Maui_Coords['lat'],name="Hana Maui Region",description=f"Maui East Shore @ {Hana_Maui_Coords['lat']},{Hana_Maui_Coords['long']}", updated_at=now, user=guy)
+   Waiehu_Maui = Spot(long=Waiehu_Maui_Coords['long'],lat=Waiehu_Maui_Coords['lat'],name="Sandpiles/Churches/River Mouth/Big Lefts/Big Rights",description=f"Maui North Shore @ {Waiehu_Maui_Coords['lat']},{Waiehu_Maui_Coords['long']}", updated_at=now, user=guy)
+   Banyons_Big_Island = Spot(long=Banyons_Big_Island_Coords['long'],lat=Banyons_Big_Island_Coords['lat'],name="Banyons Beach",description=f"Big Island South Shore @ {Banyons_Big_Island_Coords['lat']},{Banyons_Big_Island_Coords['long']}", updated_at=now, user=guy)
+   Hapuna_Beach_Big_Island = Spot(long=Hapuna_Beach_Big_Island_Coords['long'],lat=Hapuna_Beach_Big_Island_Coords['lat'],name="Hapuna Beach",description=f"Big Island North Shore @ {Hapuna_Beach_Big_Island_Coords['lat']},{Hapuna_Beach_Big_Island_Coords['long']}", updated_at=now, user=guy)
+   Hanalei_Bay_Kauai = Spot(long=Hanalei_Bay_Kauai_Coords['long'],lat=Hanalei_Bay_Kauai_Coords['lat'],name="Hanalei Bay/Pinetrees",description=f"Kauai North Shore @ {Hanalei_Bay_Kauai_Coords['lat']},{Hanalei_Bay_Kauai_Coords['long']}", updated_at=now, user=guy)
 
    oahu = [Ala_Moana_Oahu,Banzai_Pipe_Line_Oahu,Makapuu_Oahu,Sandys_Oahu,Waimea_Bay_Oahu,Makaha_Oahu]
    maui = [Lahaina_Harbor_Maui,Honolua_Bay_Maui,Hookipa_Beach_Park_Maui,Oluwalu_Maui,Windmills_Maui,Hana_Maui,Waiehu_Maui]

@@ -6,11 +6,13 @@ spot_routes = Blueprint('spots', __name__)
 
 @spot_routes.route('/')
 def spots():
-    spots = Spot.query.all()
-    return {"spots": [spot.to_dict() for spot in spots]}
+    allspots = Spot.query.all()
+    for spot in allspots:
+        print(spot)
+    return {"spots":allspots} #! error is here
 
 
 @spot_routes.route('/<int:id>')
 def spot(id):
-    spot = Spot.query.get(id)
-    return spot.to_dict()
+    location = Spot.query.get(id)
+    return jsonify({location.to_dict()})

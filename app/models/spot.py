@@ -24,12 +24,12 @@ class Spot(db.Model):
   )
 
   @property
-  def image(self):
+  def photo(self):
     return self.image
 
 
-  @image.setter
-  def setImage(self, url):
+  @photo.setter
+  def setPhoto(self, url):
     self.image = str(url)
 
   @property
@@ -46,7 +46,6 @@ class Spot(db.Model):
       "id": self.id,
       "location": {"long":self.long,"lat":self.lat},
       "name": self.name,
-      "image": self.image,
       "description": self.description,
       "updatedAt": self.updated_at
     }
