@@ -1,56 +1,46 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import NavBar from "./components/navbar";
 import Home from "./components/home";
 import User from "./components/User";
-import UsersList from "./components/UsersList";
+import SpotsList from "./components/spots";
 
-import LoginForm from "./components/auth/LoginForm";
+// import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import UploadPicture from "./components/aws_photo";
 
 import { restoreSession } from "./store/session";
 import { setCOORDSThunk } from "./store/coords";
+import { setSPOTSThunk } from "./store/spots";
 
 function App() {
   const dispatch = useDispatch();
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [loadedCoords, setLoadedCoords] = useState(false);
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitue] = useState(null);
-  let map;
 
   // eslint-disable-next-line
-  function initMap() {
-    map = new window.google.maps.Map(document.getElementById("map"), {
-      center: { lat: latitude, lng: longitude },
-      zoom: 10,
-    });
-  }
+
   useEffect(() => {
     async function getCoords() {
       const success = async (position) => {
         const { latitude, longitude } = await position.coords;
         let new_obj = { latitude, longitude };
-        setLatitude(latitude);
-        setLongitue(longitude);
-        return dispatch(setCOORDSThunk(new_obj)).then(() =>
-          setLoadedCoords(true)
-        );
+        dispatch(setCOORDSThunk(new_obj));
+        setLoadedCoords(true);
       };
       navigator.geolocation.getCurrentPosition(success, (e) => console.log(e));
-      if (loadedCoords) initMap();
     }
     return getCoords();
-  }, [dispatch, loadedCoords, initMap]);
+  }, [dispatch]);
 
   useEffect(() => {
-    async function setUp() {
-      await dispatch(restoreSession());
+    function setUp() {
+      dispatch(restoreSession());
+      dispatch(setSPOTSThunk());
       setLoaded(true);
     }
     setUp();
@@ -66,14 +56,12 @@ function App() {
         setAuthenticated={setAuthenticated}
         authenticated={authenticated}
       />
-      <div id="map"></div>
-      {!authenticated ? <h1>Time to Log in</h1> : null}
       <Switch>
-        <Route path="/login" exact={true}>
-          <LoginForm
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
-          />
+        <Route path="/" exact={true}>
+          <Home />
+        </Route>
+        <Route path="/spots/:id">
+          <p>create me</p>
         </Route>
         <Route path="/sign-up" exact={true}>
           <SignUpForm
@@ -81,13 +69,9 @@ function App() {
             setAuthenticated={setAuthenticated}
           />
         </Route>
-        <ProtectedRoute
-          path="/users"
-          exact={true}
-          authenticated={authenticated}
-        >
-          <UsersList />
-        </ProtectedRoute>
+        <Route path="/spots" exact={true}>
+          <SpotsList />
+        </Route>
         <ProtectedRoute
           path="/users/:userId"
           exact={true}
@@ -96,7 +80,6 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-          <h1>Let's Surf</h1>
           <Home />
           <UploadPicture />
         </ProtectedRoute>

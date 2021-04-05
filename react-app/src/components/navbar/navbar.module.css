@@ -1,25 +1,36 @@
 .Main_NavBar {
+   top: 0;
+   justify-self: center;
    width: 100%;
    height: 6vh;
    margin: 0;
+   margin-top: 2vh;
    padding: 0;
-   background-color: #333;
    display: flex;
    align-items: center;
+   justify-content: center;
+   background-color: transparent;
 }
 .navbar_ul {
+   background-color: #0074A2;
    margin: 0;
    display: inline-flex;
    justify-content: flex-start;
    align-items: center;
    list-style-type: none;
-   width: 95vmax;
-   height: 4.8vh;
+   width: 90vw;
+   height: 100%;
 }
 .navbar_li a {
    text-decoration: none;
    color: whitesmoke;
    display: inline;
+}
+.navbar_li a:hover {
+   color: #005B95;
+   background-color: whitesmoke;
+   margin-left: 10px;
+   flex-grow: 50%;
 }
 .navbar_li {
    display: flex;
@@ -33,10 +44,27 @@
    position: absolute;
    display: flex;
    justify-self: flex-end;
-   margin-left: 85vmax
+   margin-left: 80vmax
 }
 
 .navbar_logout button {
    width: 100%;
    height: 100%;
+}
+.navbar_login {
+   position: absolute;
+   display: flex;
+   justify-self: flex-end;
+   margin-left: 80vmax
+}
+
+.navbar_login a {
+   color: whitesmoke;
+   padding: 5px;
+   background-color: #333;
+}
+.navbar_login a:hover {
+   color: #333;
+   padding: 5px;
+   background-color: whitesmoke;
 }

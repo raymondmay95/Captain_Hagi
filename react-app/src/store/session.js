@@ -70,7 +70,7 @@ export const restoreSession = () => async (dispatch) => {
     },
   });
   const data = await response.json();
-  // console.log('\n\n_*_*_*GET DATA', data, '\n\n');
+  // console.log("\n\n_*_*_*GET DATA", data, "\n\n");
   dispatch(setUser(data));
   return data;
 };

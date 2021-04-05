@@ -10,13 +10,11 @@ def spots():
         # allSpots[spot] = spot
     #! error is here
     allSpots = []
-    i = int(len(allspots)-1)
-    while i > 0:
-        i = i - 1
-        allSpots.append(allspots[i])
-        print(allSpots)
+    while len(allspots):
+        spot = allspots.pop()
+        allSpots.append(spot.to_dict())
 
-    return jsonify({"Spots":[spot.to_dict() for spot in allSpots]})
+    return jsonify({"Spots":allSpots})
 
 
 @spot_routes.route('/<int:id>')
@@ -24,3 +22,10 @@ def spot(id):
     location = Spot.query.get(id)
     data=location.to_dict()
     return data
+
+
+@spot_routes.route('/location/<int:id>')
+def spotLocation(id):
+    spot = Spot.query.get(id)
+    data = spot.to_dict()
+    return data["location"]

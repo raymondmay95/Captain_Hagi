@@ -19,7 +19,6 @@ const LocalWeather = () => {
         const { relativeLocation, forecast } = properties;
         setWeatherMeta(forecast);
         setCoordsStr(relativeLocation.properties);
-        console.log(relativeLocation.properties);
       } else {
         console.log("failed to fetch");
         return response.status;
