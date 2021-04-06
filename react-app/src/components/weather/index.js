@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from "react";
+import Carousel from "react-elastic-carousel";
 import { useSelector } from "react-redux";
+import * as classes from "./weather.module.css";
+import Item from "./item";
 
-const LocalWeather = () => {
+const breakPoints = [
+  { width: 1, itemsToShow: 1 },
+  { width: 550, itemsToShow: 4 },
+  { width: 768, itemsToShow: 6 },
+  { width: 1200, itemsToShow: 8 },
+];
+
+const LocalWeather = ({ longitude, latitude }) => {
   const [weather, setWeather] = useState(null);
   const [weatherMeta, setWeatherMeta] = useState(null);
   const [coordsStr, setCoordsStr] = useState(null);
   const { coords } = useSelector((state) => state.coords);
-  const { longitude, latitude } = coords;
+  if (!longitude && !latitude) {
+    latitude = coords.latitude;
+    longitude = coords.longitude;
+  }
 
   useEffect(() => {
-    async function getFetch() {
+    async function getFetch(latitude, longitude) {
       if (!longitude && !latitude) return;
       const response = await fetch(
         `https://api.weather.gov/points/${latitude},${longitude}`
@@ -24,7 +37,7 @@ const LocalWeather = () => {
         return response.status;
       }
     }
-    getFetch();
+    getFetch(latitude, longitude);
   }, [longitude, latitude]);
 
   useEffect(() => {
@@ -44,43 +57,50 @@ const LocalWeather = () => {
     }
     getFetch();
   }, [weatherMeta]);
+
   const report = weather ? (
-    <ul>
-      {weather.map((ele, i) => (
-        <li key={ele.name}>
-          <div
-            style={{
-              background: `url(${ele.icon}) no-repeat center`,
-              width: `20px`,
-              height: `20px`,
-              backgroundSize: `40px`,
-              borderRadius: "50%",
-            }}
-          ></div>
-          {ele.name}
-          <ul>
-            <li key={ele.temperature}>
-              {ele.temperature + " "}
-              {ele.temperatureUnit}
+    <ul className={classes.Weather_Container}>
+      <Carousel breakPoints={breakPoints}>
+        {weather.map((ele, i) => (
+          <Item>
+            <li key={ele.name}>
+              <div
+                style={{
+                  background: `url(${ele.icon}) no-repeat center`,
+                  width: `20px`,
+                  height: `20px`,
+                  backgroundSize: `40px`,
+                  borderRadius: "50%",
+                }}
+              ></div>
+              <label for={ele.name}>{ele.name}</label>
+              <ul>
+                <li key={ele.temperature} className={classes.Temperature}>
+                  {ele.temperature + " "}
+                  {ele.temperatureUnit}
+                </li>
+                <li key={ele.windSpeed} className={classes.Wind}>
+                  {ele.windSpeed + " "}
+                  {ele.windDirection}
+                </li>
+                <li key={ele.number}>{ele.detailedForecast}</li>
+              </ul>
             </li>
-            <li key={ele.windSpeed}>
-              {ele.windSpeed + " "}
-              {ele.windDirection}
-            </li>
-            <li key={ele.number}>{ele.detailedForecast}</li>
-          </ul>
-        </li>
-      ))}
+          </Item>
+        ))}
+      </Carousel>
     </ul>
   ) : null;
   return (
     <div>
       {coordsStr ? (
-        <h3>
-          {coordsStr.city}, {coordsStr.state}
-        </h3>
+        <div className={classes.coordsStr}>
+          <h3>
+            {coordsStr.city}, {coordsStr.state}
+          </h3>
+        </div>
       ) : (
-        <h1>no</h1>
+        <span>fetching weather...</span>
       )}
       {report ? report : null}
     </div>

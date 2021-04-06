@@ -3,7 +3,7 @@ function boundMap(latitude, longitude, zoom, divId, spots) {
 
   function initMap() {
     let map = new window.google.maps.Map(document.getElementById(`${divId}`), {
-      center: { lat: latitude, lng: longitude },
+      center: { lat: Number(latitude), lng: Number(longitude) },
       zoom: zoom,
     });
     return map;

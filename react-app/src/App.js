@@ -7,6 +7,7 @@ import NavBar from "./components/navbar";
 import Home from "./components/home";
 import User from "./components/User";
 import SpotsList from "./components/spots";
+import Spot from "./components/spot_page";
 
 // import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
@@ -58,20 +59,24 @@ function App() {
       />
       <Switch>
         <Route path="/" exact={true}>
-          <Home />
+          <Home loaded={loaded} />
         </Route>
-        <Route path="/spots/:id">
-          <p>create me</p>
-        </Route>
+        <ProtectedRoute path="/spots/:id" authenticated={authenticated}>
+          <Spot />
+        </ProtectedRoute>
         <Route path="/sign-up" exact={true}>
           <SignUpForm
             authenticated={authenticated}
             setAuthenticated={setAuthenticated}
           />
         </Route>
-        <Route path="/spots" exact={true}>
-          <SpotsList />
-        </Route>
+        <ProtectedRoute
+          path="/spots"
+          exact={true}
+          authenticated={authenticated}
+        >
+          <SpotsList loaded={loaded} />
+        </ProtectedRoute>
         <ProtectedRoute
           path="/users/:userId"
           exact={true}

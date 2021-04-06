@@ -1,0 +1,22 @@
+.coordsStr {
+   display: flex;
+   justify-content: center;
+}
+.Weather_Container {
+   background-color: purple;
+}
+
+.Weather_Container li :not(li):not(label) {
+   background-color: pink;
+}
+
+.Name {
+   color: yellow;
+}
+
+.Temperature {
+   color: red;
+}
+.Wind {
+   color: white;
+}

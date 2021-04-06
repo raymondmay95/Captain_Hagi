@@ -4,7 +4,9 @@ body {
    box-sizing: border-box;
    padding: 0;
    margin: 0;
-   overflow: hidden;
+   overflow: visible;
+   scroll-behavior: smooth;
+   overflow-x: hidden;
 }
 .map_container {
    top: 3%;
@@ -27,4 +29,8 @@ body {
    height: 85%;
    opacity: 0.9;
    background-color: #055E88;
+}
+
+::-webkit-scrollbar {
+   display: none;
 }

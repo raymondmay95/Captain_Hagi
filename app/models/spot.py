@@ -3,7 +3,8 @@ from .db import db
 Spot_join_User = db.Table(
     "spot_join_user",
     db.Column("user_id", db.INTEGER, db.ForeignKey("users.id"), primary_key=True),
-    db.Column("spot_id", db.INTEGER, db.ForeignKey("spots.id"), primary_key=True),
+    db.Column("spot_name", db.String(255), db.ForeignKey("spots.id"), primary_key=True),
+    db.Column("comment_id", db.INTEGER, db.ForeignKey("comments.id"), primary_key=True)
 )
 
 class Spot(db.Model):
