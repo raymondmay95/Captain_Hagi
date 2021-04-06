@@ -10,7 +10,7 @@ class MyAWS(db.Model):
   aws_url = db.Column(db.Text(), nullable= False)
   spot_id = db.Column(db.Integer, db.ForeignKey("spots.id"))
   spot = db.relationship("Spot", back_populates="aws")
-  comments = db.relationship("MyAWS", back_populates="aws")
+  comments = db.relationship("Comment")
 
 
   def to_dict(self):

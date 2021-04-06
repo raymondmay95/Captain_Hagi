@@ -17,6 +17,7 @@ class User(db.Model, UserMixin):
     secondary=Spot_join_User,
     back_populates="user"
   )
+  comments = db.relationship("Comment")
 
   @property
   def password(self):
