@@ -22,6 +22,7 @@ class Spot(db.Model):
     secondary=Spot_join_User,
     back_populates="spots"
   )
+  comments = db.relationship("Comment")
 
   @property
   def photo(self):

@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import MapComponent from "../map";
-import boundMap from "../../services/map";
-import { useSelector } from "react-redux";
 // import LocalWeather from "../weather"; //render this in an icon
 // import getFetch from "../services/fetch";
 // import * as geolib from "geolib";

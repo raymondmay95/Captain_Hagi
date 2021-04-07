@@ -24,13 +24,13 @@ function User() {
 
   return (
     <ul>
-      <li>
+      <li key={userId}>
         <strong>User Id</strong> {userId}
       </li>
-      <li>
+      <li key={user.display_name}>
         <strong>Display Name</strong> {user.display_name}
       </li>
-      <li>
+      <li key={user.email}>
         <strong>Email</strong> {user.email}
       </li>
     </ul>

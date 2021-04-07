@@ -7,8 +7,6 @@ spot_routes = Blueprint('spots', __name__)
 @spot_routes.route('/')
 def spots():
     allspots = Spot.query.all()
-        # allSpots[spot] = spot
-    #! error is here
     allSpots = []
     while len(allspots):
         spot = allspots.pop()
