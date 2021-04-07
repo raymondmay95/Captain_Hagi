@@ -59,37 +59,39 @@ const LocalWeather = ({ longitude, latitude }) => {
   }, [weatherMeta]);
 
   const report = weather ? (
-    <ul className={classes.Weather_Container}>
-      <Carousel breakPoints={breakPoints}>
-        {weather.map((ele, i) => (
-          <Item key={`item${i}`}>
-            <li key={ele.name}>
-              <div
-                style={{
-                  background: `url(${ele.icon}) no-repeat center`,
-                  width: `20px`,
-                  height: `20px`,
-                  backgroundSize: `40px`,
-                  borderRadius: "50%",
-                }}
-              ></div>
-              <label htmlFor={ele.name}>{ele.name}</label>
-              <ul>
-                <li key={ele.temperature} className={classes.Temperature}>
-                  {ele.temperature + " "}
-                  {ele.temperatureUnit}
-                </li>
-                <li key={ele.windSpeed} className={classes.Wind}>
-                  {ele.windSpeed + " "}
-                  {ele.windDirection}
-                </li>
-                <li key={ele.number}>{ele.detailedForecast}</li>
-              </ul>
-            </li>
-          </Item>
-        ))}
-      </Carousel>
-    </ul>
+    <div className={classes.OuterWeather_Container}>
+      <ul className={classes.Weather_Container}>
+        <Carousel breakPoints={breakPoints}>
+          {weather.map((ele, i) => (
+            <Item key={`item${i}`}>
+              <li key={ele.name}>
+                <div
+                  style={{
+                    background: `url(${ele.icon}) no-repeat center`,
+                    width: `20px`,
+                    height: `20px`,
+                    backgroundSize: `40px`,
+                    borderRadius: "50%",
+                  }}
+                ></div>
+                <label htmlFor={ele.name}>{ele.name}</label>
+                <ul>
+                  <li key={ele.temperature} className={classes.Temperature}>
+                    {ele.temperature + " "}
+                    {ele.temperatureUnit}
+                  </li>
+                  <li key={ele.windSpeed} className={classes.Wind}>
+                    {ele.windSpeed + " "}
+                    {ele.windDirection}
+                  </li>
+                  <li key={ele.number}>{ele.detailedForecast}</li>
+                </ul>
+              </li>
+            </Item>
+          ))}
+        </Carousel>
+      </ul>
+    </div>
   ) : null;
   return (
     <div>

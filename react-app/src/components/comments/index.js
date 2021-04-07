@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router";
+import * as classes from "./comments.module.css";
 
 function Comments() {
   const history = useHistory();
@@ -69,14 +70,14 @@ function Comments() {
         <ul>
           {comments.map((comment, i) => (
             <>
-              <li key={comment.id}>
+              <li key={comment.id} className={classes.Comments}>
                 <p>{comment.comment}</p>
               </li>
             </>
           ))}
         </ul>
       </div>
-      <div>
+      <div className={classes.Comment}>
         <form onSubmit={handleSubmit}>
           <input
             type="text"

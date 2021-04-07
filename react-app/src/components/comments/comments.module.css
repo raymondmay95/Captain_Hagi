@@ -1,0 +1,11 @@
+.Comments {
+   display: flex;
+   align-items: center;
+   color: #ffffff;
+   font-size: 24px;
+}
+.Comment {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}

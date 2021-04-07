@@ -1,6 +1,6 @@
 /* TODO Add site wide styles */
 body {
-   background-color: #0074A2;
+   background-color: #242f40;
    box-sizing: border-box;
    padding: 0;
    margin: 0;
@@ -28,7 +28,10 @@ body {
    width: 92vw;
    height: 85%;
    opacity: 0.9;
-   background-color: #055E88;
+   background-color: #242f40;
+   border-bottom: #CCA43B 4px solid;
+   border-left: #cca33bb4 1px solid;
+   border-right: #CCA43B 2px solid;
 }
 
 ::-webkit-scrollbar {
