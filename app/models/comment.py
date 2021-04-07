@@ -9,7 +9,7 @@ class Comment(db.Model):
   comment  = db.Column(db.Text(), nullable= False)
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
   spot_id = db.Column(db.Integer, db.ForeignKey("spots.id"))
-  aws_id = db.Column(db.Integer, db.ForeignKey("aws.id"), nullable=True)
+  aws_url = db.Column(db.Text(), db.ForeignKey("aws.aws_url"), nullable=True)
   user = db.relationship("User")
   spots = db.relationship("Spot")
   url = db.relationship("MyAWS")
@@ -20,5 +20,5 @@ class Comment(db.Model):
       "id": self.id,
       "comment": self.comment,
       "meta_data": self.user_id,
-      "aws": self.aws_id
+      "aws": self.aws_url
     }

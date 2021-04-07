@@ -1,5 +1,6 @@
 function boundMap(latitude, longitude, zoom, divId, spots) {
   if (!window.google) return;
+  if (!latitude && !longitude) return;
 
   function initMap() {
     let map = new window.google.maps.Map(document.getElementById(`${divId}`), {

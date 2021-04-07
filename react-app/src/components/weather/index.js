@@ -62,7 +62,7 @@ const LocalWeather = ({ longitude, latitude }) => {
     <ul className={classes.Weather_Container}>
       <Carousel breakPoints={breakPoints}>
         {weather.map((ele, i) => (
-          <Item>
+          <Item key={`item${i}`}>
             <li key={ele.name}>
               <div
                 style={{
@@ -73,7 +73,7 @@ const LocalWeather = ({ longitude, latitude }) => {
                   borderRadius: "50%",
                 }}
               ></div>
-              <label for={ele.name}>{ele.name}</label>
+              <label htmlFor={ele.name}>{ele.name}</label>
               <ul>
                 <li key={ele.temperature} className={classes.Temperature}>
                   {ele.temperature + " "}

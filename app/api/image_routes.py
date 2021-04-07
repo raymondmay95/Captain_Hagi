@@ -7,11 +7,11 @@ from app.s3_helpers import (
 image_routes = Blueprint("images", __name__)
 
 
-@image_routes.route("", methods=["POST"])
+@image_routes.route("/spot/<int:id>", methods=["POST"])
 @login_required
-def upload_image():
+def upload_image(id):
     if "image" not in request.files:
-        return {"errors": "image required"}, 400
+        return print("no image")
 
     image = request.files["image"]
 
@@ -30,7 +30,8 @@ def upload_image():
 
     url = upload["url"]
     # flask_login allows us to get the current user from the request
-    new_image = MyAWS(spot_id=1, aws_url=url, rss_feed_url="arn:aws:s3:::captain-hagi")
+    new_image = MyAWS(spot_id=id, aws_url=url, rss_feed_url="arn:aws:s3:::captain-hagi")
     db.session.add(new_image)
     db.session.commit()
+
     return {"url": url}

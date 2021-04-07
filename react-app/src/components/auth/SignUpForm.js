@@ -43,7 +43,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
   return (
     <form className={classes.SignUpForm} onClick={onSignUp}>
       <div className={classes.InnerFormBackground}>
-        <label for="username">User Name</label>
+        <label htmlFor="username">User Name</label>
         <div>
           <input
             className={classes.InputFields}
@@ -54,7 +54,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
             value={username}
           ></input>
         </div>
-        <label for="email">Email</label>
+        <label htmlFor="email">Email</label>
         <div>
           <input
             className={classes.InputFields}
@@ -65,7 +65,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
             value={email}
           ></input>
         </div>
-        <label for="password">Password</label>
+        <label htmlFor="password">Password</label>
         <div>
           <input
             className={classes.InputFields}
@@ -76,7 +76,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
             value={password}
           ></input>
         </div>
-        <label for="repeat_password">Repeat Password</label>
+        <label htmlFor="repeat_password">Repeat Password</label>
         <div>
           <input
             className={classes.InputFields}

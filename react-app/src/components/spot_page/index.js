@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LocalWeather from "../weather";
+import Comments from "../comments";
 import * as classes from "./spot_page.module.css";
 
 function Spot() {
@@ -30,6 +31,7 @@ function Spot() {
         {loaded ? (
           <LocalWeather latitude={latitude} longitude={longitude} />
         ) : null}
+        <Comments />
       </div>
     </>
   );

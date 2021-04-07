@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 7d73d534d92e
+Revision ID: 01509d4154b8
 Revises: 
-Create Date: 2021-04-06 09:27:06.721892
+Create Date: 2021-04-06 14:33:39.225196
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '7d73d534d92e'
+revision = '01509d4154b8'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -45,7 +45,8 @@ def upgrade():
     sa.Column('aws_url', sa.Text(), nullable=False),
     sa.Column('spot_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['spot_id'], ['spots.id'], ),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('aws_url')
     )
     op.create_table('spot_join_user',
     sa.Column('user_id', sa.INTEGER(), nullable=False),
@@ -59,8 +60,8 @@ def upgrade():
     sa.Column('comment', sa.Text(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('spot_id', sa.Integer(), nullable=True),
-    sa.Column('aws_id', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['aws_id'], ['aws.id'], ),
+    sa.Column('aws_url', sa.Text(), nullable=True),
+    sa.ForeignKeyConstraint(['aws_url'], ['aws.aws_url'], ),
     sa.ForeignKeyConstraint(['spot_id'], ['spots.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')

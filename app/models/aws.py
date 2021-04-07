@@ -7,7 +7,7 @@ class MyAWS(db.Model):
 
   id = db.Column(db.Integer, primary_key = True)
   rss_feed_url = db.Column(db.Text(), nullable= False)
-  aws_url = db.Column(db.Text(), nullable= False)
+  aws_url = db.Column(db.Text(), nullable= False, unique= True)
   spot_id = db.Column(db.Integer, db.ForeignKey("spots.id"))
   spot = db.relationship("Spot", back_populates="aws")
   comments = db.relationship("Comment")
