@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import boundMap from "../../services/map";
+import boundMarkers from "../../services/marker";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import * as classes from "./map.module.css";
 
 function MapComponent() {
@@ -15,19 +16,7 @@ function MapComponent() {
     if (coords) {
       let { latitude, longitude } = coords;
       let map = boundMap(latitude, longitude, 7, "map", spots);
-      for (let spot in spots) {
-        let marker = new window.google.maps.Marker({
-          position: {
-            lat: Number(spots[spot].location.lat),
-            lng: Number(spots[spot].location.long),
-          },
-          map: map,
-        });
-        marker.customInfo = spots[spot].name;
-        window.google.maps.event.addListener(marker, "click", function () {
-          history.push(`spots/${spots[spot].id}`);
-        });
-      }
+      boundMarkers(map, spots, history);
     }
   });
 

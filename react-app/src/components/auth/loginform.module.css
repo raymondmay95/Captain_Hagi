@@ -1,0 +1,6 @@
+.Outer_Container {
+   display: flex;
+}
+.Outer_Container span {
+   width: 100%;
+}

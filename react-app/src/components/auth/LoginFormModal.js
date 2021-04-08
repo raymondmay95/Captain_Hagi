@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { Modal } from "../ModalProvider";
 import LoginForm from "./LoginForm";
 
@@ -14,12 +13,8 @@ function LoginFormModal({ authenticated, setAuthenticated }) {
           <LoginForm
             setAuthenticated={setAuthenticated}
             authenticated={authenticated}
+            setShowModal={setShowModal}
           />
-          <div>
-            <NavLink to="/sign-up" onClick={() => setShowModal(false)}>
-              Sign Up here
-            </NavLink>
-          </div>
         </Modal>
       )}
     </>

@@ -8,6 +8,8 @@ function Comments() {
   const [comment, setComment] = useState(null);
   const [comments, setComments] = useState([]);
 
+  // Why is this in react state and not redux store???
+  // My reasoning is to preserver data givin the point that reports for weather are driven by users.
   useEffect(() => {
     async function fetchData() {
       const commentsData = await fetch(`/api/comments/spot/${id}`);
