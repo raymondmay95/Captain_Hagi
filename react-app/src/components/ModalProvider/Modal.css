@@ -34,9 +34,9 @@
   padding: 10px;
   text-align: center;
   font-size: 12px;
-  height: 65vh;
-  width: 400px;
-  background-color: #005B95;
+  height: 80%;
+  width: 80%;
+  background-color: transparent;
 }
 
 .login-errors li {

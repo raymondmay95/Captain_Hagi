@@ -4,9 +4,8 @@ import { logout } from "../../store/session";
 
 const LogoutButton = ({ setAuthenticated }) => {
   const dispatch = useDispatch();
-  const onLogout = async (e) => {
-    console.log("hit");
-    await dispatch(logout());
+  const onLogout = (e) => {
+    dispatch(logout());
     setAuthenticated(false);
   };
 

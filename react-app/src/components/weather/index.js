@@ -76,15 +76,15 @@ const LocalWeather = ({ longitude, latitude }) => {
                 ></div>
                 <label htmlFor={ele.name}>{ele.name}</label>
                 <ul>
-                  <li key={ele.temperature} className={classes.Temperature}>
+                  <li key="temperature" className={classes.Temperature}>
                     {ele.temperature + " "}
                     {ele.temperatureUnit}
                   </li>
-                  <li key={ele.windSpeed} className={classes.Wind}>
+                  <li key="ele.windSpeed" className={classes.Wind}>
                     {ele.windSpeed + " "}
                     {ele.windDirection}
                   </li>
-                  <li key={ele.number}>{ele.detailedForecast}</li>
+                  <li key={`detailedForcast`}>{ele.detailedForecast}</li>
                 </ul>
               </li>
             </Item>

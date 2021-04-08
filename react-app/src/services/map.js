@@ -9,6 +9,10 @@ function boundMap(latitude, longitude, zoom, divId, spots) {
     });
     return map;
   }
-  return initMap();
+  if (initMap.call) {
+    return initMap();
+  } else {
+    console.log("initing map...");
+  }
 }
 export default boundMap;

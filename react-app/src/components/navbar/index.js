@@ -42,15 +42,15 @@ const NavBar = ({ setAuthenticated, authenticated }) => {
       <>
         <nav className={classes.Main_NavBar}>
           <ul className={classes.navbar_ul}>
-            <li className={classes.navbar_li}>
+            <li className={classes.navbar_li} key="NavHome">
               <NavLink to="/" exact={true} activeClassName="active">
                 Home
               </NavLink>
             </li>
-            <li className={classes.navbar_logout}>
+            <li className={classes.navbar_logout} key="NavLogOut">
               <LogoutButton setAuthenticated={setAuthenticated} />
             </li>
-            <li className={classes.navbar_li}>
+            <li className={classes.navbar_li} key="NavSpots">
               <NavLink to="/spots" exact={true} activeClassName="active">
                 Spots
               </NavLink>

@@ -15,11 +15,7 @@ function Comments() {
       const commentsData = await fetch(`/api/comments/spot/${id}`);
       if (commentsData.ok) {
         const { Comments_By_Spot } = await commentsData.json();
-        console.log(Comments_By_Spot);
         setComments([...Comments_By_Spot]);
-        // let userIds = Comments_By_Spot.map((comment) => comment.userId);
-        // console.log(userIds);
-        // setUserIds(userIds);
       } else {
         console.log(
           `failed to fetch comments by spotId(${id})`,
@@ -50,32 +46,15 @@ function Comments() {
       console.log("failed to handle submit", res.status);
     }
   };
-  // useEffect(() => {
-  //   async function fetchData(id) {
-  //     const res = await fetch(`/api/users/${id}`);
-  //     if (res.ok) {
-  //       const user = await res.json();
-  //       // console.log(user);
-  //       return user;
-  //     } else {
-  //       console.log(`failed to fetch user at ${id}`);
-  //     }
-  //   }
-  //   if (!userIds) return;
-  //   let users = userIds.map((id) => fetchData(id));
-  //   setCommenters(users);
-  // }, [userIds]);
 
   return (
     <div>
       <div>
         <ul>
           {comments.map((comment, i) => (
-            <>
-              <li key={comment.id} className={classes.Comments}>
-                <p>{comment.comment}</p>
-              </li>
-            </>
+            <li key={`comment${i}`} className={classes.Comments}>
+              <p>{comment.comment}</p>
+            </li>
           ))}
         </ul>
       </div>
