@@ -1,31 +1,60 @@
-.SignUpForm {
-   background-color: rgba(255, 255, 255, 0.65);
-   height: 85vh;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.Outer_Container {
+   box-sizing: border-box;
+}
+
+.body {
+   background: #f6f5f7;
    display: flex;
    justify-content: center;
    align-items: center;
-}
-
-.InnerFormBackground {
-   background-color: rgba(255, 255, 255,0.9);
-   box-sizing: border-box;
-   width: 40%;
-   height: 60%;
-   display: flex;
-   align-items: flex-start;
    flex-direction: column;
-   justify-content: center;
-   padding-left: 10px;
+   font-family: 'Montserrat', sans-serif;
+   height: 100vh;
+   margin: -20px 0 50px;
 }
 
-
-.InputFields {
-   line-height: 24px;
-   text-align: center;
-}
-.InputFields:hover:focus {
-   line-height: 28px;
-   text-align: left;
-   padding-left: 5px;
+.Form_Container label {
+   font-weight: bold;
+   margin: 0;
 }
 
+.Form_Container button {
+   border-radius: 20px;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+.Form_Container button:active {
+   transform: scale(0.95);
+}
+.Form_Container button:focus {
+   outline: none;
+}
+
+.SignUpForm {
+   background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 110%;
+	text-align: center;
+}
+
+.SignUpForm input {
+   background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
