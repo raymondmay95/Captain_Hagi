@@ -1,4 +1,4 @@
-function boundMap(latitude, longitude, zoom, divId, spots) {
+function boundMap(latitude, longitude, zoom, divId) {
   if (!window.google) return;
   if (!latitude && !longitude) return;
 
@@ -9,10 +9,6 @@ function boundMap(latitude, longitude, zoom, divId, spots) {
     });
     return map;
   }
-  if (initMap.call) {
-    return initMap();
-  } else {
-    console.log("initing map...");
-  }
+  return initMap();
 }
 export default boundMap;
