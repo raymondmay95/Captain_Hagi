@@ -12,7 +12,6 @@ class Map extends Component {
       <ScriptTag
         async
         defer
-        referrerPolicy="Access-Control-Allow-Origin"
         src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&callback=initMap`}
       ></ScriptTag>
     );

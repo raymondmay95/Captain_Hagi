@@ -38,7 +38,6 @@ function Comments() {
     if (res.ok) {
       const { Comment } = await res.json();
       setComment(Comment);
-      console.log(Comment);
       history.push({
         pathname: `/spots/${id}`,
         state: Comment,
@@ -58,6 +57,7 @@ function Comments() {
             </h2>
             {comments.map((comment, i) => (
               <li key={`comment${i}`} className={classes.Comments}>
+                <h3 className={classes.UserName}>{comment.user.displayName}</h3>
                 <p>{comment.comment}</p>
               </li>
             ))}

@@ -16,7 +16,7 @@
    align-items: center;
    color: #ffffff;
    font-size: 12px;
-   justify-content: flex-end;
+   justify-content: space-between;
    margin-right: 20px;
 }
 .Comment_Form__Container {
@@ -44,4 +44,9 @@
    width: 60vw;
    display: flex;
    justify-content: space-around;
+}
+
+.UserName {
+   justify-self: flex-start;
+   color: black
 }
