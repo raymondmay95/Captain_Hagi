@@ -38,6 +38,7 @@ function Comments() {
     if (res.ok) {
       const { Comment } = await res.json();
       setComment(Comment);
+      console.log(Comment);
       history.push({
         pathname: `/spots/${id}`,
         state: Comment,
@@ -49,25 +50,32 @@ function Comments() {
 
   return (
     <div>
-      <div>
-        <ul>
-          {comments.map((comment, i) => (
-            <li key={`comment${i}`} className={classes.Comments}>
-              <p>{comment.comment}</p>
-            </li>
-          ))}
-        </ul>
+      <div className={classes.Comments_container}>
+        <div className={classes.Comments_inner_container}>
+          <ul>
+            <h2>
+              Do you have an eye on the surf now? Contribute to this forecast...
+            </h2>
+            {comments.map((comment, i) => (
+              <li key={`comment${i}`} className={classes.Comments}>
+                <p>{comment.comment}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-      <div className={classes.Comment}>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={comment ? comment : ""}
-            placeholder={"Post a report..."}
-            onChange={(e) => setComment(e.target.value)}
-          />
-          <button type="submit">submit</button>
-        </form>
+      <div className={classes.Comment_Form__Container}>
+        <div className={classes.Comments_Inner_Form}>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={comment ? comment : ""}
+              placeholder={"Post a report..."}
+              onChange={(e) => setComment(e.target.value)}
+            />
+          </form>
+          <button type="submit">Contribute</button>
+        </div>
       </div>
     </div>
   );

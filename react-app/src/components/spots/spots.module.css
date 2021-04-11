@@ -12,6 +12,9 @@
    align-items: center;
    flex-direction: column;
 }
+#Inner_Container h1 {
+   cursor:none;
+}
 
 .Li_Container li {
    width: 100%;

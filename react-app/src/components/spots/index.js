@@ -21,7 +21,7 @@ function SpotsList({ loaded }) {
             <div className={classes.Li_Container}>
               {Spots.map((spot) => (
                 <li key={spot.name}>
-                  <label for={spot.name}>
+                  <label htmlFor={spot.name}>
                     {spot.updatedAt.split(" ")[4] + "   "}
                   </label>
                   <NavLink to={`/spots/${spot.id}`} name={spot.name}>
