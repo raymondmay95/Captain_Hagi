@@ -1,6 +1,7 @@
 from .db import db
 # from sqlalchemy import select
 # from .spot import Spot
+from .user import User
 
 class Comment(db.Model):
   __tablename__ = 'comments'
@@ -16,9 +17,12 @@ class Comment(db.Model):
 
 
   def to_dict(self):
+    user = User.query.get(self.user_id)
+    print(user.to_dict())
     return {
       "id": self.id,
       "comment": self.comment,
       "meta_data": self.user_id,
-      "aws": self.aws_url
+      "aws": self.aws_url,
+      "user": user.to_dict()
     }

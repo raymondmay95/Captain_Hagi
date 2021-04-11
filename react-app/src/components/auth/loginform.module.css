@@ -2,7 +2,7 @@
    box-sizing: border-box;
    margin: 0;
    padding: 0;
-   width: 60vh;
+   width: 67vh;
    height: 20vw;
    background-color: #b1ddfe;
    border: #001728 solid 1px;
@@ -11,8 +11,8 @@
 .Title {
    position: absolute;
    display: flex;
-   margin-top: -5vh;
-   margin-left: 10vmax;
+   margin-top: -10vh;
+   width: 45%;
 }
 
 .Form {
@@ -38,6 +38,7 @@
    height: 70%;
    width: 35%;
    flex-wrap: wrap;
+   margin-right: 20px;
 
 }
 
@@ -86,6 +87,7 @@
 
 .SignUp {
    margin-top: 10px;
+   margin-left: 2vw;
 
 }
 .SignUp a {

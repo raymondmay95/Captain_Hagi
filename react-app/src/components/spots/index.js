@@ -18,11 +18,18 @@ function SpotsList({ loaded }) {
         <div id={classes.Inner_Container}>
           <h1>Spots: </h1>
           <ul>
-            {Spots.map((spot) => (
-              <li key={spot.name}>
-                <NavLink to={`/spots/${spot.id}`}>{spot.name}</NavLink>
-              </li>
-            ))}
+            <div className={classes.Li_Container}>
+              {Spots.map((spot) => (
+                <li key={spot.name}>
+                  <label htmlFor={spot.name}>
+                    {spot.updatedAt.split(" ")[4] + "   "}
+                  </label>
+                  <NavLink to={`/spots/${spot.id}`} name={spot.name}>
+                    {spot.name}
+                  </NavLink>
+                </li>
+              ))}
+            </div>
           </ul>
         </div>
       </div>
