@@ -1,5 +1,4 @@
 import React, { useEffect, Component } from "react";
-import ScriptTag from "react-script-tag";
 import boundMap from "../../services/map";
 import boundMarkers from "../../services/marker";
 import { useSelector } from "react-redux";
@@ -7,14 +6,14 @@ import { useHistory } from "react-router-dom";
 import * as classes from "./map.module.css";
 
 class Map extends Component {
+  componentDidMount() {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&callback=initMap`;
+    document.body.appendChild(script);
+  }
   render() {
-    return (
-      <ScriptTag
-        async
-        defer
-        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&callback=initMap`}
-      ></ScriptTag>
-    );
+    return <div id="initMap" ref={(el) => (this.div = el)}></div>;
   }
 }
 

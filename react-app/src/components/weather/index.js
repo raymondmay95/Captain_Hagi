@@ -3,6 +3,7 @@ import Carousel from "react-elastic-carousel";
 import { useSelector } from "react-redux";
 import * as classes from "./weather.module.css";
 import Item from "./item";
+import Graphy from "../graph";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -90,6 +91,8 @@ const LocalWeather = ({ longitude, latitude }) => {
             </Item>
           ))}
         </Carousel>
+        <Graphy data={weather} title={"Temperature (F)"} />
+        <Graphy data={weather} title={"WindSpeed"} />
       </ul>
     </div>
   ) : null;
