@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { login } from "../../services/auth";
 import * as classes from "./loginform.module.css";
 import { NavLink } from "react-router-dom";
 
 const LoginForm = ({ authenticated, setAuthenticated, setShowModal }) => {
+  const history = useHistory();
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,7 +39,7 @@ const LoginForm = ({ authenticated, setAuthenticated, setShowModal }) => {
   };
 
   if (authenticated) {
-    return <Redirect to="/" />;
+    history.push("/");
   }
 
   return (

@@ -59,7 +59,11 @@ function App() {
       />
       <Switch>
         <Route path="/" exact={true}>
-          <Home loaded={loaded} />
+          <Home
+            loaded={loaded}
+            setAuthenticated={setAuthenticated}
+            authenticated={authenticated}
+          />
         </Route>
         <ProtectedRoute path="/spots/:id" authenticated={authenticated}>
           <Spot />
@@ -77,6 +81,13 @@ function App() {
         >
           <SpotsList loaded={loaded} />
         </ProtectedRoute>
+        <Route path="/spots" exact={true}>
+          <Home
+            loaded={loaded}
+            setAuthenticated={setAuthenticated}
+            authenticated={authenticated}
+          />
+        </Route>
         <ProtectedRoute
           path="/users/:userId"
           exact={true}
