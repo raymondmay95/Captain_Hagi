@@ -1,0 +1,20 @@
+.Outer_Container {
+   height: 5rem;
+}
+
+.Inner_Container {}
+
+.Element_Container {
+   display: flex;
+   flex-direction: row;
+}
+
+.Element_Container label {
+   font-size: 14px;
+}
+
+.Element_Container li {
+   list-style-type: none;
+   font-size: 10px;
+   margin-left: 3rem;
+}
