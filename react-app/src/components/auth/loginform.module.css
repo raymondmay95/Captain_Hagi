@@ -1,0 +1,46 @@
+.Form_Otter_Container {
+   display: flex;
+   margin: 0;
+   padding: 0;
+   width: 40%;
+   height: 100%;
+   flex-direction: column;
+   text-align: center;
+}
+
+.Errors #red {
+   color: red
+}
+
+.Items {
+   margin: 1rem;
+}
+
+.Items li {
+   list-style-type: none;
+}
+
+.InputFields_Container {
+   margin: 0;
+}
+
+.SignUp {
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: flex-end;
+}
+
+.SignUp a {
+   text-decoration: none;
+   color: hsl(0, 6%, 24%);
+   background-color: white;
+   padding: .5rem;
+}
+
+.SignUp a:hover {
+   background-color: hsl(0, 0%, 92%);
+   box-shadow: .1rem .1rem black;
+}
