@@ -1,20 +1,46 @@
+.title {
+   width: 50%;
+   position: absolute;
+}
+
 .Outer_Container {
-   height: 5rem;
+   width: 50%;
+   display: inline-flex;
+   flex-wrap: wrap;
+   padding: 0%;
+   margin: 0%;
+   margin-top: 4rem;
+   justify-content: space-between;
 }
 
-.Inner_Container {}
-
-.Element_Container {
+.Inner_Container {
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
+   align-self: center;
+   width: 40rem;
 }
 
-.Element_Container label {
-   font-size: 14px;
+.timeStr {
+   font-size: 4rem;
 }
 
-.Element_Container li {
-   list-style-type: none;
-   font-size: 10px;
-   margin-left: 3rem;
+.temperature {
+   align-self: flex-end;
+   justify-self: center;
+   color: red
 }
+
+.btn {
+   border: none;
+   outline: none;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: blue;
+   background-color: hsl(0, 0%, 92%);
+}
+
+.btn:hover {
+   background-color: hsl(0, 11%, 68%);
+}
+
