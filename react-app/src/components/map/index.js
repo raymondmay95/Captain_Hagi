@@ -33,12 +33,10 @@ function MapComponent() {
   });
 
   return (
-    <div className={classes.App}>
-      <div className="map_container">
-        <Map />
-        <div id="map"></div>
-      </div>
-    </div>
+    <>
+      <Map />
+      <div id="map" className={classes.map}></div>
+    </>
   );
 }
 

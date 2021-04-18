@@ -10,29 +10,21 @@ const NavBar = ({ setAuthenticated, authenticated }) => {
     sessionLinks = (
       <>
         <nav className={classes.Main_NavBar}>
-          <ul className={classes.navbar_ul}>
-            <li className={classes.navbar_li} key="NavHome">
-              <NavLink to="/" exact={true} activeClassName="active">
-                Home
-              </NavLink>
-            </li>
-            <li className={classes.navbar_li} key="NavSignUp">
-              <NavLink to="/sign-up" exact={true} activeClassName="active">
-                Sign Up
-              </NavLink>
-            </li>
-            <li className={classes.navbar_li} key="NavSpots">
-              <NavLink to="/spots" exact={true} activeClassName="active">
-                Spots
-              </NavLink>
-            </li>
-            <li className={classes.navbar_login} key="NavLogIn">
-              <LoginFormModal
-                authenticated={authenticated}
-                setAuthenticated={setAuthenticated}
-              />
-            </li>
-          </ul>
+          <div>
+            <NavLink to="/" exact={true} activeClassName="active">
+              Home
+            </NavLink>
+            <NavLink to="/sign-up" exact={true} activeClassName="active">
+              Sign Up
+            </NavLink>
+            <NavLink to="/spots" exact={true} activeClassName="active">
+              Spots
+            </NavLink>
+            <LoginFormModal
+              authenticated={authenticated}
+              setAuthenticated={setAuthenticated}
+            />
+          </div>
         </nav>
       </>
     );
@@ -41,21 +33,16 @@ const NavBar = ({ setAuthenticated, authenticated }) => {
     sessionLinks = (
       <>
         <nav className={classes.Main_NavBar}>
-          <ul className={classes.navbar_ul}>
-            <li className={classes.navbar_li} key="NavHome">
-              <NavLink to="/" exact={true} activeClassName="active">
-                Home
-              </NavLink>
-            </li>
-            <li className={classes.navbar_logout} key="NavLogOut">
-              <LogoutButton setAuthenticated={setAuthenticated} />
-            </li>
-            <li className={classes.navbar_li} key="NavSpots">
-              <NavLink to="/spots" exact={true} activeClassName="active">
-                Spots
-              </NavLink>
-            </li>
-          </ul>
+          <div>
+            <NavLink to="/" exact={true} activeClassName="active">
+              Home
+            </NavLink>
+            <NavLink to="/spots" exact={true} activeClassName="active">
+              Spots
+            </NavLink>
+            <div className={classes.spacer}></div>
+            <LogoutButton setAuthenticated={setAuthenticated} />
+          </div>
         </nav>
       </>
     );

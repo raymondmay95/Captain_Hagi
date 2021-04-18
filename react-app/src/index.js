@@ -8,6 +8,7 @@ import App from "./App";
 import * as session from "./store/session";
 import * as coords from "./store/coords";
 import * as spots from "./store/spots";
+import * as weather from "./store/weather";
 
 const store = configureStore();
 
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV !== "production") {
   window.session = session;
   window.coords = coords;
   window.spots = spots;
+  window.weather = weather;
 }
 
 const Root = () => {

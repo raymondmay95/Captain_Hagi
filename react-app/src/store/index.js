@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session.js";
 import coordsReducer from "./coords.js";
 import spotsReducer from "./spots.js";
+import weatherReducer from "./weather.js";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   coords: coordsReducer,
-  spots: spotsReducer
+  spots: spotsReducer,
+  weather: weatherReducer,
 });
 
 let enhancer;

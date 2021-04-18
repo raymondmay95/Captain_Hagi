@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { login } from "../../services/auth";
 import * as classes from "./loginform.module.css";
 import { NavLink } from "react-router-dom";
 
 const LoginForm = ({ authenticated, setAuthenticated, setShowModal }) => {
+  const history = useHistory();
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,16 +39,21 @@ const LoginForm = ({ authenticated, setAuthenticated, setShowModal }) => {
   };
 
   if (authenticated) {
-    return <Redirect to="/" />;
+    history.push("/");
   }
 
   return (
     <>
-      <span className={classes.Title}>
-        <h3>Please Log In!</h3>
-      </span>
-      <div className={classes.FormBody}>
-        <form onSubmit={onLogin} className={classes.Form}>
+      <div className={classes.Form_Otter_Container}>
+        <div className={classes.SignUp}>
+          <NavLink to="/sign-up" onClick={() => setShowModal(false)}>
+            Sign Up
+          </NavLink>
+        </div>
+        <span>
+          <h3>Please Log In!</h3>
+        </span>
+        <form onSubmit={onLogin}>
           <div className={classes.Errors}>
             {errors.length ? (
               errors.map((error) => <div id={classes.red}>{` ${error} `}</div>)
@@ -93,11 +99,6 @@ const LoginForm = ({ authenticated, setAuthenticated, setShowModal }) => {
             </span>
           </ul>
         </form>
-        <div className={classes.SignUp}>
-          <NavLink to="/sign-up" onClick={() => setShowModal(false)}>
-            Sign Up here
-          </NavLink>
-        </div>
       </div>
     </>
   );

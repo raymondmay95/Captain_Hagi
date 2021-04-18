@@ -16,12 +16,14 @@ import UploadPicture from "./components/aws_photo";
 import { restoreSession } from "./store/session";
 import { setCOORDSThunk } from "./store/coords";
 import { setSPOTSThunk } from "./store/spots";
+import { setWeatherThunk } from "./store/weather";
 
 function App() {
   const dispatch = useDispatch();
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [loadedCoords, setLoadedCoords] = useState(false);
+  const [coords, setCoords] = useState(null);
 
   // eslint-disable-next-line
 
@@ -32,6 +34,7 @@ function App() {
         let new_obj = { latitude, longitude };
         dispatch(setCOORDSThunk(new_obj));
         setLoadedCoords(true);
+        setCoords(new_obj);
       };
       navigator.geolocation.getCurrentPosition(success, (e) => console.log(e));
     }
@@ -42,10 +45,13 @@ function App() {
     function setUp() {
       dispatch(restoreSession());
       dispatch(setSPOTSThunk());
+      if (coords) {
+        dispatch(setWeatherThunk(coords));
+      }
       setLoaded(true);
     }
     setUp();
-  }, [dispatch]);
+  }, [dispatch, coords]);
 
   if (!loaded && !loadedCoords) {
     return null;
@@ -59,7 +65,7 @@ function App() {
       />
       <Switch>
         <Route path="/" exact={true}>
-          <Home loaded={loaded} />
+          <Home loaded={loaded} authenticated={authenticated} />
         </Route>
         <ProtectedRoute path="/spots/:id" authenticated={authenticated}>
           <Spot />
@@ -77,6 +83,13 @@ function App() {
         >
           <SpotsList loaded={loaded} />
         </ProtectedRoute>
+        <Route path="/spots" exact={true}>
+          <Home
+            loaded={loaded}
+            setAuthenticated={setAuthenticated}
+            authenticated={authenticated}
+          />
+        </Route>
         <ProtectedRoute
           path="/users/:userId"
           exact={true}

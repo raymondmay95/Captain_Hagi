@@ -1,5 +1,9 @@
-.App {
-   box-sizing: border-box;
-   margin: 0;
-   padding: 0;
+
+.map {
+   /* margin-right: 5rem; */
+   background-attachment: fixed;
+   background-size: cover;
+   background-position: top;
+   width: 40rem;
+   height: 25rem;
 }
