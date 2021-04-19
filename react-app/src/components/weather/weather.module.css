@@ -2,10 +2,36 @@
    display: flex;
    justify-content: center;
 }
+
+div .sc-furvIG {
+   background-color: transparent !important;
+   height: fit-content;
+}
+
 .Weather_Container {
    align-self: center;
    background-color: transparent;
    width: 70vw;
+
+}
+
+.Weather_Container button {
+   color: var(--main-txt-color);
+   background-color: var(--main-bg-color);
+}
+
+.Weather_Container button:hover {
+   color: var(--main-bg-color);
+   background-color: var(--main-txt-color) !important;
+}
+
+.rec_slidebar_container {
+   height: max-content;
+}
+
+.Weather_Container button:active {
+   color: white;
+   background-color: white;
 }
 
 .OuterWeather_Container {
@@ -13,23 +39,38 @@
    justify-content: center;
    background-color: transparent;
    width: 100vw;
+   height: 90rem;
 }
 
 .Weather_Container li :not(li):not(label) {
-   background-color: #242f40;
+   background-color: transparent;
+   display: flex;
+   flex-direction: column;
+   padding: 1rem;
+   width: fit-content;
+   height: 100%;
 }
 
 .Name {
-   color: yellow;
+   color: #fff;
 }
 
 .Temperature {
    color: red;
-}
-.Wind {
-   color: #ffffff;
+   list-style-type: none;
+   text-align: end;
+   font-size: .5rem;
 }
 
-.sc-bdvvaa .bSWeAW .rec .rec-arrow .rec .rec-arrow-right {
-   background-color: #cca43b;
+.Wind {
+   color: #fefefe;
+   list-style-type: none;
+   text-align: end;
+   font-size: .5rem;
+}
+
+
+.rec-dot {
+   box-shadow: none !important;
+   border: none !important;
 }

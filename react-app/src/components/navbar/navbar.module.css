@@ -3,33 +3,40 @@
 .Main_NavBar {
    font-family: "Montserrat", sans-serif;
    box-sizing: border-box;
-   font-size: 16px;
+   font-size: 1rem;
    font-family: 'Open Sans';
-   --text-primary:#b6b6b6;
-   --text-secondary: #ececec;
-   --bg-primary: #23232e;
-   --bg-secondary: #141418;
    width: 100vw;
-   height: 2vh;
+   height: 3rem;
 }
 
-.Main_NavBar > div {
+.Main_NavBar>div {
    display: flex;
    align-items: center;
    justify-content: space-between;
    margin: 1rem 5rem 2rem 5rem
 }
 
-.Main_NavBar > div > a {
+.Main_NavBar>div>a {
    text-decoration: none;
-   color: white
+   color: var(--main-txt-color)
 }
 
-.Main_NavBar > div > button {
-
+.Main_NavBar>div>button {
+   font-size: 1rem;
+   font-family: 'Open Sans';
+   box-sizing: border-box;
+   outline: none;
+   border: none;
+   color: var(--main-txt-color);
+   background-color: var(--main-bg-color);
+   padding: .1rem;
+   width: 20%;
+   height: 120%;
 }
-.Main_NavBar > div > button:hover {
 
+.Main_NavBar>div>button:hover {
+   color: var(--main-bg-color);
+   background-color: var(--main-txt-color);
 }
 
 .spacer {

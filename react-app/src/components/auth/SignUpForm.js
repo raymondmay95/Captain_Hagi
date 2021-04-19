@@ -54,6 +54,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
               <div>
                 <input
                   className={classes.InputFields}
+                  autoComplete="off"
                   type="text"
                   name="username"
                   placeholder="User Name"
@@ -65,6 +66,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
               <div>
                 <input
                   className={classes.InputFields}
+                  autoComplete="off"
                   type="text"
                   name="email"
                   placeholder="Email@example.com"

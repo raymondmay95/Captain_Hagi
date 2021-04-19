@@ -4,21 +4,23 @@
    display: flex;
    justify-content: center;
 }
+
 .Comments_inner_container {
    width: 60vmax;
    height: fit-content;
    display: flex;
    justify-content: flex-end;
-   border: #ffffff solid 2px;
 }
+
 .Comments {
    display: flex;
    align-items: center;
-   color: #ffffff;
+   color: var(--main-text-color);
    font-size: 12px;
    justify-content: space-between;
    margin-right: 20px;
 }
+
 .Comment_Form__Container {
    display: flex;
    align-items: center;
@@ -39,6 +41,7 @@
    height: 6vh;
    width: 8vw;
 }
+
 .Comments_Inner_Form {
    box-sizing: border-box;
    width: 60vw;
@@ -48,5 +51,5 @@
 
 .UserName {
    justify-self: flex-start;
-   color: black
+   color: var(--main-txt-color)
 }

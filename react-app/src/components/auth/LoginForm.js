@@ -4,7 +4,7 @@ import { login } from "../../services/auth";
 import * as classes from "./loginform.module.css";
 import { NavLink } from "react-router-dom";
 
-const LoginForm = ({ authenticated, setAuthenticated, setShowModal }) => {
+const LoginForm = ({ authenticated, setAuthenticated, setShowModal, id }) => {
   const history = useHistory();
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
@@ -19,7 +19,6 @@ const LoginForm = ({ authenticated, setAuthenticated, setShowModal }) => {
       setErrors(user.errors);
     }
   };
-
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -44,7 +43,7 @@ const LoginForm = ({ authenticated, setAuthenticated, setShowModal }) => {
 
   return (
     <>
-      <div className={classes.Form_Otter_Container}>
+      <div className={classes.Form_Otter_Container} id={id ? id : ""}>
         <div className={classes.SignUp}>
           <NavLink to="/sign-up" onClick={() => setShowModal(false)}>
             Sign Up

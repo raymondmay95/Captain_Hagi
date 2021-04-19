@@ -33,7 +33,7 @@ function App() {
         const { latitude, longitude } = await position.coords;
         let new_obj = { latitude, longitude };
         dispatch(setCOORDSThunk(new_obj));
-        setLoadedCoords(true);
+        setLoadedCoords((loaded) => !loaded);
         setCoords(new_obj);
       };
       navigator.geolocation.getCurrentPosition(success, (e) => console.log(e));
@@ -43,11 +43,11 @@ function App() {
 
   useEffect(() => {
     function setUp() {
-      dispatch(restoreSession());
-      dispatch(setSPOTSThunk());
       if (coords) {
         dispatch(setWeatherThunk(coords));
       }
+      dispatch(restoreSession());
+      dispatch(setSPOTSThunk());
       setLoaded(true);
     }
     setUp();
@@ -65,7 +65,10 @@ function App() {
       />
       <Switch>
         <Route path="/" exact={true}>
-          <Home loaded={loaded} authenticated={authenticated} />
+          <Home
+            setAuthenticated={setAuthenticated}
+            authenticated={authenticated}
+          />
         </Route>
         <ProtectedRoute path="/spots/:id" authenticated={authenticated}>
           <Spot />

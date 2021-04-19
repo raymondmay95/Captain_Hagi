@@ -1,5 +1,6 @@
 import React from "react";
 import Plot from "react-plotly.js";
+// import * as classes from "./plot.module.css";
 
 function Graphy({ data, title }) {
   if (data) {
@@ -15,12 +16,15 @@ function Graphy({ data, title }) {
       mode: "line",
       connectgaps: true,
       labels: data.map((ele, i) => ele.name),
-      marker: { color: "red" },
+      marker: { color: "hsl(240, 66%, 48%)" },
       layout: {
-        width: "100%",
-        height: "100%",
+        showlegend: false,
         title: title,
+        width: "50%",
+        height: "50%",
         font: { size: 10 },
+        plot_bgcolor: "transparent",
+        paper_bgcolor: "transparent",
       },
     };
     const { x, y, type, mode, marker, layout } = trace;

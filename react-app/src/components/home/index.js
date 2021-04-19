@@ -9,12 +9,20 @@ import HomeWeather from "../weather/home_weather";
 // import * as geolib from "geolib";
 import Graphy from "../graph";
 
-function Home({ authenticated }) {
+function Home({ authenticated, setAuthenticated }) {
   const periods = useSelector((state) => state?.weather?.properties?.periods);
   return (
     <div className={classes.outter_container}>
       <div className={classes.inner_container}>
-        {authenticated ? <HomeWeather /> : <LoginForm />}
+        {authenticated ? (
+          <HomeWeather />
+        ) : (
+          <LoginForm
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+            id={classes.LoginForm}
+          />
+        )}
       </div>
       <MapComponent />
       <div className={classes.graph_components}>
@@ -22,7 +30,9 @@ function Home({ authenticated }) {
           {periods ? <Graphy data={periods} title={"Temperature (F)"} /> : null}
         </div>
         <div className={classes.wind_graph}>
-          {periods ? <Graphy data={periods} title={"WindSpeed"} /> : null}
+          {periods ? (
+            <Graphy id={classes.Plot} data={periods} title={"WindSpeed"} />
+          ) : null}
         </div>
       </div>
     </div>

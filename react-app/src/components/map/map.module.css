@@ -1,4 +1,3 @@
-
 .map {
    /* margin-right: 5rem; */
    background-attachment: fixed;
@@ -6,4 +5,5 @@
    background-position: top;
    width: 40rem;
    height: 25rem;
+   background-color: var(--main-bg-color);
 }

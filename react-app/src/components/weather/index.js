@@ -7,8 +7,8 @@ import Graphy from "../graph";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 4 },
-  { width: 768, itemsToShow: 6 },
+  { width: 550, itemsToShow: 3 },
+  { width: 768, itemsToShow: 5 },
   { width: 1200, itemsToShow: 8 },
 ];
 
@@ -68,9 +68,9 @@ const LocalWeather = ({ longitude, latitude }) => {
               <li key={ele.name}>
                 <div
                   style={{
-                    background: `url(${ele.icon}) no-repeat center`,
-                    width: `20px`,
-                    height: `20px`,
+                    background: `url(${ele.icon}) no-repeat 20% 50%`,
+                    width: `1.5rem`,
+                    height: `1rem`,
                     backgroundSize: `40px`,
                     borderRadius: "50%",
                   }}

@@ -1,9 +1,17 @@
+:root {
+   --main-bg-color: #f4f4f4;
+   --main-txt-color: #333;
+   --header-bg-color: #333;
+   --header-txt-color: #fff
+}
+
 #Outer_Container {
    display: flex;
    width: 100vw;
    height: 100vh;
    box-sizing: border-box;
 }
+
 #Inner_Container {
    display: flex;
    width: 100vw;
@@ -12,8 +20,9 @@
    align-items: center;
    flex-direction: column;
 }
+
 #Inner_Container h1 {
-   cursor:none;
+   cursor: none;
 }
 
 .Li_Container li {
@@ -28,13 +37,15 @@
    margin-right: 10vw;
 
 }
+
 .Li_Container a {
    display: flex;
    align-self: flex-start;
    word-wrap: break-word;
    text-decoration: none;
-   color: #ffffff;
+   color: var(--main-text-color);
 }
+
 .Li_Container a:hover {
    flex-grow: 30%;
 }

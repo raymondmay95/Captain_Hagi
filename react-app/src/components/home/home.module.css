@@ -8,7 +8,11 @@
    justify-content: space-around;
    padding: 0;
    margin: 0;
-   background-color: hsl(0, 0%, 92%);
+}
+
+#LoginForm {
+   margin-left: 30rem;
+
 }
 
 .inner_container {

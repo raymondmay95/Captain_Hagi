@@ -1,60 +1,60 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 .Outer_Container {
-   box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .body {
-   background: transparent;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   font-family: 'Montserrat', sans-serif;
-   height: 100vh;
-   margin: -20px 0 50px;
+	background: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	margin: -20px 0 50px;
 }
 
 .Form_Container label {
-   font-weight: bold;
-   margin: 0;
+	font-weight: bold;
+	margin: 0;
 }
 
 .Form_Container button {
-   border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
-	color: #FFFFFF;
+	border-radius: 30%;
+	border: 1px solid var(--header-txt-color);
+	background-color: var(--main-bg-color);
+	color: var(--main-txt-color);
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
-	letter-spacing: 1px;
+	letter-spacing: .1rem;
 	text-transform: uppercase;
-	transition: transform 80ms ease-in;
 }
 
-.Form_Container button:active {
-   transform: scale(0.95);
-}
-.Form_Container button:focus {
-   outline: none;
+
+.Form_Container button:hover {
+	box-sizing: border-box;
+	border: black .1rem solid;
 }
 
 .SignUpForm {
-   background-color: #FFFFFF;
+	border: black .1rem solid;
+	box-shadow: 1rem 1rem black;
+	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 0 50px;
-	height: 110%;
+	padding: 7rem;
+	height: 25rem;
 	text-align: center;
 }
 
 .SignUpForm input {
-   background-color: #eee;
+	background-color: var(--main-bg-color);
 	border: none;
-	padding: 12px 15px;
+	padding: 1rem 1.2rem;
 	margin: 8px 0;
 	width: 100%;
 }

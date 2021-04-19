@@ -4,7 +4,7 @@ import * as classes from "./home_weather.module.css";
 
 function HomeWeather() {
   // const { coords } = useSelector((state) => state.coords);
-  const { periods } = useSelector((state) => state.weather.properties);
+  const { periods } = useSelector((state) => state.weather?.properties);
 
   let holderArr = new Array(periods.length);
   for (let i = 0; i < holderArr.length; i++) {
@@ -13,7 +13,7 @@ function HomeWeather() {
       timeStr: <div className={classes.timeStr}>{period.name}</div>,
       temperature: (
         <div className={classes.temperature}>
-          {period.temperature} {period.temperatureUnit}
+          {period.temperature} deg. {period.temperatureUnit}
         </div>
       ),
       shortForecast: <div>{period.sortForecast}</div>,
@@ -36,18 +36,20 @@ function HomeWeather() {
   return (
     <>
       <span className={classes.title}>
-        <h1>Welcome Back...</h1>
+        <h2>Here is the forcast for...</h2>
       </span>
-      <div className={classes.Outer_Container} id="home_weather_toggle">
-        <button className={classes.btn} onClick={decrement}>
+      <div className={classes.Flex_Container}>
+        <button className={classes.btnBack} onClick={decrement}>
           Back
         </button>
-        <div className={classes.Inner_Container}>
-          {holderArr[position].timeStr}
-          {holderArr[position].temperature}
-          {holderArr[position].detailedForecast}
+        <div className={classes.Outer_Container} id="home_weather_toggle">
+          <div className={classes.Inner_Container}>
+            {holderArr[position].timeStr}
+            {holderArr[position].temperature}
+            {holderArr[position].detailedForecast}
+          </div>
         </div>
-        <button className={classes.btn} onClick={increment}>
+        <button className={classes.btnNext} onClick={increment}>
           Next
         </button>
       </div>
