@@ -15,9 +15,6 @@ body {
    overflow: visible;
    scroll-behavior: smooth;
    overflow-x: hidden;
-   width: 90vw;
-   margin-left: 5vw;
-   margin-right: 5vw;
 }
 
 ::-webkit-scrollbar {
