@@ -53,7 +53,6 @@ const LocalWeather = ({ longitude, latitude }) => {
           return response.status;
         }
       } else {
-        console.log("no weather meta data.");
       }
     }
     getFetch();

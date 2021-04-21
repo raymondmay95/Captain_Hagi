@@ -3,10 +3,13 @@ import { useSelector } from "react-redux";
 import * as classes from "./home_weather.module.css";
 
 function HomeWeather() {
+  let [position, setPosition] = useState(0);
   // const { coords } = useSelector((state) => state.coords);
-  const { periods } = useSelector((state) => state.weather?.properties);
-
-  let holderArr = new Array(periods.length);
+  const { periods } = useSelector((state) => state.weather?.properties) || {
+    null: null,
+  };
+  if (!periods) return (window.location = "/");
+  var holderArr = new Array(periods.length);
   for (let i = 0; i < holderArr.length; i++) {
     let period = periods[i];
     holderArr[i] = {
@@ -21,7 +24,6 @@ function HomeWeather() {
     };
   }
 
-  let [position, setPosition] = useState(0);
   function decrement(e) {
     e.preventDefault();
     if (position <= 0) return setPosition(0);

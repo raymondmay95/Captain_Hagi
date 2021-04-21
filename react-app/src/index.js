@@ -9,6 +9,7 @@ import * as session from "./store/session";
 import * as coords from "./store/coords";
 import * as spots from "./store/spots";
 import * as weather from "./store/weather";
+import * as alerts from "./store/alerts";
 
 const store = configureStore();
 
@@ -18,11 +19,19 @@ if (process.env.NODE_ENV !== "production") {
   window.coords = coords;
   window.spots = spots;
   window.weather = weather;
+  window.alerts = alerts;
 }
 
 const Root = () => {
   return (
-    <Provider store={store} session={session} coords={coords} spots={spots}>
+    <Provider
+      store={store}
+      session={session}
+      coords={coords}
+      spots={spots}
+      weather={weather}
+      alerts={alerts}
+    >
       <ModalProvider>
         <App />
       </ModalProvider>

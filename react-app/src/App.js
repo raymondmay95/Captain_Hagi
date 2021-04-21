@@ -17,6 +17,7 @@ import { restoreSession } from "./store/session";
 import { setCOORDSThunk } from "./store/coords";
 import { setSPOTSThunk } from "./store/spots";
 import { setWeatherThunk } from "./store/weather";
+import { alertsTHUNK } from "./store/alerts";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ function App() {
       const success = async (position) => {
         const { latitude, longitude } = await position.coords;
         let new_obj = { latitude, longitude };
+        dispatch(alertsTHUNK("HI"));
         dispatch(setCOORDSThunk(new_obj));
         setLoadedCoords((loaded) => !loaded);
         setCoords(new_obj);
