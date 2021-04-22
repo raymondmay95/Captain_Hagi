@@ -4,12 +4,14 @@ import sessionReducer from "./session.js";
 import coordsReducer from "./coords.js";
 import spotsReducer from "./spots.js";
 import weatherReducer from "./weather.js";
+import alertsReducer from "./alerts.js";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   coords: coordsReducer,
   spots: spotsReducer,
   weather: weatherReducer,
+  alerts: alertsReducer,
 });
 
 let enhancer;

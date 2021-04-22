@@ -33,7 +33,7 @@ function App() {
       const success = async (position) => {
         const { latitude, longitude } = await position.coords;
         let new_obj = { latitude, longitude };
-        dispatch(alertsTHUNK("HI"));
+        dispatch(alertsTHUNK("VA"));
         dispatch(setCOORDSThunk(new_obj));
         setLoadedCoords((loaded) => !loaded);
         setCoords(new_obj);
@@ -85,16 +85,17 @@ function App() {
           path="/spots"
           exact={true}
           authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
         >
           <SpotsList loaded={loaded} />
         </ProtectedRoute>
-        <Route path="/spots" exact={true}>
+        {/* <Route path="/spots" exact={true}>
           <Home
             loaded={loaded}
             setAuthenticated={setAuthenticated}
             authenticated={authenticated}
           />
-        </Route>
+        </Route> */}
         <ProtectedRoute
           path="/users/:userId"
           exact={true}

@@ -1,21 +1,21 @@
-import React, { useEffect, Component } from "react";
-import boundMap from "../../services/map";
+import React, { useEffect } from "react";
+import { boundMap } from "../../services/map";
 import boundMarkers from "../../services/marker";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as classes from "./map.module.css";
 
-class Map extends Component {
-  componentDidMount() {
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&callback=initMap`;
-    document.body.appendChild(script);
-  }
-  render() {
-    return <div id="initMap" ref={(el) => (this.div = el)}></div>;
-  }
-}
+// class Map extends Component {
+//   componentDidMount() {
+//     const script = document.createElement("script");
+//     script.async = true;
+//     script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&callback=initMap`;
+//     document.body.appendChild(script);
+//   }
+//   render() {
+//     return <div id="initMap" ref={(el) => (this.div = el)}></div>;
+//   }
+// }
 
 function MapComponent() {
   // eslint-disable-next-line
@@ -34,7 +34,6 @@ function MapComponent() {
 
   return (
     <>
-      <Map />
       <div id="map" className={classes.map}></div>
     </>
   );

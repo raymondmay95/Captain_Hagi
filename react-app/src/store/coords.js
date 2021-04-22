@@ -20,12 +20,12 @@ export const setCOORDSThunk = (data) => async (dispatch, getState) => {
   return data;
 };
 
-const initialState = { coords: {} };
 export const removeCOORDSThunk = (data) => async (dispatch) => {
   dispatch(removeCOORDS());
   return data;
 };
 //reducers
+const initialState = { coords: {} };
 export default function coordsReducer(state = initialState, action) {
   switch (action.type) {
     case SET_COORDS:

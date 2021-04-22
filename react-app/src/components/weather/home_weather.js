@@ -4,7 +4,14 @@ import * as classes from "./home_weather.module.css";
 
 function HomeWeather() {
   let [position, setPosition] = useState(0);
-  // const { coords } = useSelector((state) => state.coords);
+  let [showAlert, setShowAlert] = useState(true);
+  const { features } = useSelector(
+    (state) => state.alerts || { features: null }
+  );
+  if (features && features.length && showAlert) {
+    alert(`Here are major alerts for your area \n ${features}`);
+    setShowAlert(false);
+  }
   const { periods } = useSelector((state) => state.weather?.properties) || {
     null: null,
   };

@@ -10,6 +10,7 @@ import * as coords from "./store/coords";
 import * as spots from "./store/spots";
 import * as weather from "./store/weather";
 import * as alerts from "./store/alerts";
+import { Map } from "./services/map";
 
 const store = configureStore();
 
@@ -19,7 +20,7 @@ if (process.env.NODE_ENV !== "production") {
   window.coords = coords;
   window.spots = spots;
   window.weather = weather;
-  window.alerts = alerts;
+  window.weatherAlerts = alerts;
 }
 
 const Root = () => {
@@ -33,6 +34,7 @@ const Root = () => {
       alerts={alerts}
     >
       <ModalProvider>
+        <Map />
         <App />
       </ModalProvider>
     </Provider>
