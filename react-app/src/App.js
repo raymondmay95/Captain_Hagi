@@ -25,6 +25,7 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const [loadedCoords, setLoadedCoords] = useState(false);
   const [coords, setCoords] = useState(null);
+  const [forecastingMeta, setForecastingMeta] = useState(null);
 
   // eslint-disable-next-line
 
@@ -33,27 +34,19 @@ function App() {
       const success = async (position) => {
         const { latitude, longitude } = await position.coords;
         let new_obj = { latitude, longitude };
-        dispatch(alertsTHUNK("VA"));
+        dispatch(alertsTHUNK("HI"));
         dispatch(setCOORDSThunk(new_obj));
         setLoadedCoords((loaded) => !loaded);
         setCoords(new_obj);
+        dispatch(setWeatherThunk(new_obj));
       };
       navigator.geolocation.getCurrentPosition(success, (e) => console.log(e));
-    }
-    return getCoords();
-  }, [dispatch]);
-
-  useEffect(() => {
-    function setUp() {
-      if (coords) {
-        dispatch(setWeatherThunk(coords));
-      }
       dispatch(restoreSession());
       dispatch(setSPOTSThunk());
       setLoaded(true);
     }
-    setUp();
-  }, [dispatch, coords]);
+    return getCoords();
+  }, [dispatch]);
 
   if (!loaded && !loadedCoords) {
     return null;
@@ -104,7 +97,10 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-          <Home />
+          <Home
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
           <UploadPicture />
         </ProtectedRoute>
       </Switch>

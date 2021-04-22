@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import * as classes from "./home_weather.module.css";
 
-function HomeWeather() {
+function HomeWeather({ periods }) {
   let [position, setPosition] = useState(0);
   let [showAlert, setShowAlert] = useState(true);
   const { features } = useSelector(
@@ -12,10 +12,7 @@ function HomeWeather() {
     alert(`Here are major alerts for your area \n ${features}`);
     setShowAlert(false);
   }
-  const { periods } = useSelector((state) => state.weather?.properties) || {
-    null: null,
-  };
-  if (!periods) return (window.location = "/");
+  if (!periods) window.location.reload();
   var holderArr = new Array(periods.length);
   for (let i = 0; i < holderArr.length; i++) {
     let period = periods[i];

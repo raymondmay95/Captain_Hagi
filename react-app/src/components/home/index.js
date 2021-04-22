@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import MapComponent from "../map";
 import * as classes from "./home.module.css";
@@ -10,12 +10,16 @@ import HomeWeather from "../weather/home_weather";
 import Graphy from "../graph";
 
 function Home({ authenticated, setAuthenticated }) {
-  const periods = useSelector((state) => state?.weather?.properties?.periods);
+  const [periods, setPeriods] = useState(null);
+  const data = useSelector((state) => state?.weather?.properties?.periods);
+  useEffect(() => {
+    setPeriods(data);
+  }, [data]);
   return (
     <div className={classes.outter_container}>
       <div className={classes.inner_container}>
         {authenticated ? (
-          <HomeWeather />
+          <HomeWeather periods={periods} />
         ) : (
           <LoginForm
             authenticated={authenticated}
